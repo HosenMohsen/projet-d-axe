@@ -1,0 +1,41 @@
+.avatar {
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.avatar_small {
+    width: 30px;
+    height: 30px;
+}
+
+.avatar_karmine{
+    width: 40px;
+    height: 40px;
+}
+
+.logo_form {
+    position: absolute;
+    left: 400px;
+    
+}
+
+.avatar_big {
+    width: 45px;
+    height: 45px;
+}
+
+
+.avatar_profil{
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+}
+
+
+@media screen and (min-width:320px) and (max-width:600px) {
+    .logo_form {
+        left: 100px;
+        
+    }
+
+}

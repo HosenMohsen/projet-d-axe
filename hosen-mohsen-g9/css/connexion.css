@@ -1,0 +1,35 @@
+ :root{
+    --body-bg-color:#ecf0f3
+ }
+
+#Body1 {
+    width: 100vw;
+    height: 100vh;
+    background: var(--body-bg-color);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    place-items: center;
+    overflow: hidden;
+    font-family: poppins;
+}
+
+
+.center p {
+    margin-left: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+.right{
+    display: flex;
+    font-size: x-large;
+    justify-content: flex-end;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+}
