@@ -40,15 +40,5 @@ window.onclick = function (event) {
 
 
 
-let heart = document.getElementsByClassName("heart");
-
-
-for (const count in heart) {
-    heart[count].addEventListener("click", (event) => {
-        heart[count].classList.toggle("red")
-    })
-};
-
-
 
 

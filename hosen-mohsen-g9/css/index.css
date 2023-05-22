@@ -1,3 +1,13 @@
+:root{
+    --border-li-color: #9b9b9b;
+    --bg-li-color:#d3d3d3;
+    --border-li-main-color:#e2e2e2;
+    --modal-bg-color:#f9f9f9;
+    --modal-border-color:#888;
+    --button-color:#aaa;
+    --pop-bg-color:#B70211;
+}
+
 main {
     font-family: 'Work Sans', sans-serif;
     overflow: hidden;
@@ -43,9 +53,9 @@ main {
 
 
 .parti_droite li {
-    border-top: 1px solid rgb(155, 155, 155);
-    border-bottom: 1px solid rgb(150, 150, 150);
-    background-color: #d3d3d3;
+    border-top: 1px solid var(--border-li-color);
+    border-bottom: 1px solid var(--border-li-color);
+    background-color: var(--bg-li-color);
 }
 
 .parti_droite a:hover {
@@ -55,8 +65,8 @@ main {
 
 
 .parti_centrale {
-    border-left: 1px solid rgb(226, 226, 226);
-    border-right: 1px solid rgb(226, 226, 226);
+    border-left: 1px solid var(--border-li-main-color);
+    border-right: 1px solid var(--border-li-main-color);
 }
 
 .parti_droite {
@@ -97,17 +107,17 @@ main {
 }
 
 .contenu_modal {
-    background-color: #f9f9f9;
+    background-color: var(--modal-bg-color);
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid var(--modal-border-color);
     width: 50%;
 
 
 }
 
 .close {
-    color: #aaa;
+    color: var(--button-color);
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -141,7 +151,7 @@ main {
 }
 
 .pop_up button:hover {
-    background-color: rgb(183, 2, 2);
+    background-color: var(--pop-bg-color);
 }
 
 .center p {
@@ -157,7 +167,7 @@ main {
 
 .light {
     font-weight: lighter;
-    color: #aaa;
+    color: var(--button-color);
 }
 
 

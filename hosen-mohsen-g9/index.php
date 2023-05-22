@@ -102,8 +102,8 @@ if (session_status() === PHP_SESSION_NONE){
           <img class="avatar avatar_big" src=" ./images/yone.jpg" alt="Logo Karmine Corp">
           <?php
           if(isset($_SESSION['id_utilisateur'])){
-            echo "Bienvenue " .$_SESSION['pseudo'] . " sur MyEsportBlog " . "<br>" ;
-            echo "<a href='deconnexion.php' class='btn btn-primary'> Déconnexion  </a>";
+            echo "Bienvenue " .$_SESSION['pseudo'] . " sur MyEsportBlog " . "<br> <br>" ;
+            echo "<a href='deconnexion.php' class='btn btn-secondary'> Déconnexion  </a>";
           };
           ?>
         </div>
@@ -118,6 +118,9 @@ if (session_status() === PHP_SESSION_NONE){
         <li id="btn4" class="btn btn-secondary" data-tag="Europe">   Europe  </li>
         <li id="btn5" class="btn btn-secondary" data-tag="VCT">  VCT </li>
         <li id="btn6" class="btn btn-secondary" data-tag="Karmine Corp">   Karmine Corp </li>
+        </ul>
+
+        <ul id="reset_list">
         <li id="btn7" class="btn btn-secondary" data-tag="Reset">  Reset </li>
         </ul>
 
@@ -259,13 +262,8 @@ while($message = $r->fetch(PDO::FETCH_ASSOC)){
     echo "</div>";
     echo "<div class='card_img'>";
     if ($message['image'] != NULL){
-
-       $message2= $message['image'];
-      echo '<img scr="'.$message2.'">'; 
+      echo '<img src="'.$message['image'].'">'; 
       }
-
-    /* echo '<img src="'.$img.'" alt="texte alternatif" />';
-     */
     echo "</div>";
     
     echo "<div class='light'>";
@@ -275,6 +273,8 @@ while($message = $r->fetch(PDO::FETCH_ASSOC)){
     echo "<br>";
     echo $message['tag'];
     echo "</div>";
+
+    
 
  }
 }
@@ -381,6 +381,7 @@ while($message = $r->fetch(PDO::FETCH_ASSOC)){
   $_POST['mot_de_passe'] = password_hash($_POST['mot_de_passe'], PASSWORD_DEFAULT);
   $pdo->exec("INSERT INTO utilisateur (nom, pseudo, adresse_mail, age, mot_de_passe) VALUES ('$_POST[nom]', '$_POST[pseudo]', '$_POST[adresse_mail]', '$_POST[age]', '$_POST[mot_de_passe]')");
 } 
+
 
 
 

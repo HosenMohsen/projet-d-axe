@@ -37,7 +37,7 @@ Svg.style.position = "fixed";
 Svg.style.top = "0%";
 
 const card = document.querySelectorAll(".card_container");
-console.log(card);
+
 
 
 var select = document.getElementById("nav_tag");
@@ -66,17 +66,15 @@ message.addEventListener("input", function(){
 
 
 const buttons = document.querySelectorAll("#tag_list li")
-console.log(buttons);
 
 
 
 buttons.forEach(button => {
     button.addEventListener("click", () =>{
     let tag = button.getAttribute('data-tag');
-    console.log(tag);
         card.forEach(tweet =>{
                 if(tweet.classList.contains(tag)){
-                    tweet.style.display = "block";
+                    tweet.style.display = "flex";
                 } else {
                     tweet.style.display = "none";
                 }          
@@ -85,25 +83,31 @@ buttons.forEach(button => {
        
 });
 
+const resets = document.querySelectorAll("#reset_list li");
+console.log(resets);
 
-btn7 = document.getElementById("btn7");
+resets.forEach(element =>{
+    element.addEventListener("click", ()=>{
+        card.forEach(tweet =>{
+            tweet.style.display = "flex";
+        })
+    });
+});
 
-btn7.addEventListener("click", () =>{
-    console.log(btn7);
-    card.style.display = "block";
-})
 
 
 
+const hearts = document.querySelectorAll(".heart");
 
-for (const block in card) {
-    card[block].addEventListener("click", (event) => {
-        for (const count in heart) {
-            console.log(heart);
-            heart[count].classList.toggle("red")
-        }
-    })
-};
+
+hearts.forEach(element => {
+    element.addEventListener("click", () =>{
+        console.log("yo");
+        element.classList.toggle("red");
+    });
+});
+
+
 
 
 

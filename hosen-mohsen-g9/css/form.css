@@ -1,3 +1,12 @@
+:root {
+    --form-bg-color:#ecf0f3;
+    --form-bg-shadow:#cbced1;
+    --form-title-color:#1b1010;
+    --button-bg-color:#060808;
+    --button-sbu-color:#fff;
+}
+
+
 .form_formulaire {
     position: relative;
     left: 550px;
@@ -6,8 +15,8 @@
     border-radius: 20px;
     padding: 40px;
     box-sizing: border-box;
-    background: #ecf0f3;
-    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+    background: var(--form-bg-color);
+    box-shadow: 14px 14px 20px var(--form-bg-shadow), -14px -14px 20px white;
 }
 
 .form_inscription{
@@ -18,8 +27,8 @@
     border-radius: 20px;
     padding: 40px;
     box-sizing: border-box;
-    background: #ecf0f3;
-    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+    background: var(--form-bg-color);
+    box-shadow: 14px 14px 20px var(--form-bg-shadow), -14px -14px 20px white;
 }
 
 .form_logo {
@@ -27,7 +36,7 @@
     width: 60px;
     object-fit: cover;
     border-radius: 50%;
-    box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+    box-shadow: 7px 7px 10px var(--form-bg-shadow), -7px -7px 10px white;
     overflow: hidden;
 }
 
@@ -35,7 +44,7 @@
     margin-top: 10px;
     font-weight: 900;
     font-size: 1.8rem;
-    color: #1b1010;
+    color: var(--form-title-color);
     letter-spacing: 1px;
 }
 
@@ -83,13 +92,13 @@ input::placeholder {
 }
 
 input {
-    background: #ecf0f3;
+    background: var(--form-bg-color);
     padding: 10px;
     padding-left: 20px;
     height: 50px;
     font-size: 14px;
     border-radius: 50px;
-    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+    box-shadow: inset 6px 6px 6px var(--form-bg-shadow), inset -6px -6px 6px white;
 }
 
 
@@ -101,11 +110,11 @@ button {
     outline: none;
     box-sizing: border-box;
     color: white;
-    background: #060808;
+    background: var(--button-bg-color);
     height: 40px;
     cursor: pointer;
     font-weight: 900;
-    box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+    box-shadow: 6px 6px 6px var(--form-bg-shadow), -6px -6px 6px white;
     transition: 0.5s;
 }
 
@@ -123,7 +132,7 @@ button {
     position: relative;
     border: none;
     z-index: 0;
-    color: #fff;
+    color: var(--button-sbu-color);
     border: none;
     outline: none;
 
