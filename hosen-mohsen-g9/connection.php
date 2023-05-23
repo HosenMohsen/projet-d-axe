@@ -23,7 +23,7 @@ session_start();
 
 <body id="Body1">
     <main>
-        <div id="Formulaire" class="form_formulaire">
+        <!-- <div id="Formulaire" class="form_formulaire">
             <div>
                 <img class="form_logo" src="./images/MyEsportBlog.png" alt="Logo MyEsportBlog">
             </div>
@@ -39,7 +39,36 @@ session_start();
                     <button class="form_button button_submit" type="submit" name="connexion"> CONNEXION</button>
                 </form>
             </div>
+        </div> -->
+
+
+        <div id="Formulaire">
+            <div>
+                <img class="form_logo" src="./images/MyEsportBlog.png" alt="Logo MyEsportBlog">
+            </div>
+            <div class="form_titre">Connexion</div>
+            <form method="post">
+                <div class="container">
+                    <div class="inputs">
+                    <div class="row mb-3">
+                        <label class="form-label"> PSEUDO </label>
+                        <input  class="form-control" type="text" placeholder="Ident123" name="pseudo" minlength="2" required />
+                    </div>
+                    <div class="row mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="example@gmail.com" name="adresse_mail" minlength="6" aria-describedby="emailHelp" required>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" placeholder="Min 6 caractères" minlength="6" name="mot_de_passe" class="form-control" id="exampleInputPassword1" required>
+                    </div>
+                        <button type="submit" class="btn btn-primary form_button button_submit" name="connexion">Submit</button>
+                    </div>
+                    </div>
+                    </div>
+            </form>
         </div>
+    
                
 
 

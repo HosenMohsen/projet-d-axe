@@ -7,7 +7,7 @@
 }
 
 
-.form_formulaire {
+/* .form_formulaire {
     position: relative;
     left: 550px;
     width: 350px;
@@ -17,9 +17,9 @@
     box-sizing: border-box;
     background: var(--form-bg-color);
     box-shadow: 14px 14px 20px var(--form-bg-shadow), -14px -14px 20px white;
-}
+} */
 
-.form_inscription{
+/* .form_inscription{
     position: relative;
     left: 550px;
     width: 450px;
@@ -29,7 +29,7 @@
     box-sizing: border-box;
     background: var(--form-bg-color);
     box-shadow: 14px 14px 20px var(--form-bg-shadow), -14px -14px 20px white;
-}
+} */
 
 .form_logo {
     height: 60px;
@@ -51,7 +51,7 @@
 
 .inputs {
     text-align: left;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .inputs_inscription {
@@ -94,7 +94,7 @@ input::placeholder {
 input {
     background: var(--form-bg-color);
     padding: 10px;
-    padding-left: 20px;
+    padding-left: 10px;
     height: 50px;
     font-size: 14px;
     border-radius: 50px;

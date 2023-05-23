@@ -1,8 +1,6 @@
 <?php
 
-
 $pdo = new PDO('mysql:host=localhost;dbname=esport-blog', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-
 if (session_status() === PHP_SESSION_NONE){
   session_start();
 };
@@ -98,6 +96,7 @@ if (session_status() === PHP_SESSION_NONE){
         <input type="text" name="recherche" placeholder="Rechercher des tweets">
         <button type="submit" name="envoyer"> rechercher</button>
         </form>
+
         <div>
           <img class="avatar avatar_big" src=" ./images/yone.jpg" alt="Logo Karmine Corp">
           <?php
@@ -194,7 +193,9 @@ if (session_status() === PHP_SESSION_NONE){
           </div>
         </div>
 
-        <?php
+
+
+ <?php
 
 if (isset($_POST['tweet'])){
 
@@ -203,7 +204,6 @@ if (isset($_POST['tweet'])){
   if($_FILES['upload']['error'] > 0)
   {
     echo "une erreur";
-    die;
   }
  
   $filesize = $_FILES['upload']['size'];
@@ -211,7 +211,6 @@ if (isset($_POST['tweet'])){
 
   if ($filesize > $maxsize) {
     echo "le fichier est trop volumineux";
-    die;
   }
 
   $filename = $_FILES['upload']['name'];
@@ -222,7 +221,7 @@ if (isset($_POST['tweet'])){
 
 
   $_POST['message'] = addslashes($_POST['message']); 
- $pdo->exec("INSERT INTO tweet (message, date_heure_message, tag, image) VALUES ('$_POST[message]', NOW(), '$_POST[tag]', '$filesotck')");
+ $pdo->exec("INSERT INTO tweet (message, date_heure_message, tag, image, id_utilisateur) VALUES ('$_POST[message]', NOW(), '$_POST[tag]', '$filesotck', '$_SESSION[id_utilisateur]')");
 
 
   
@@ -233,48 +232,60 @@ if (isset($_GET['idtweet'])){
 $pdo->exec("DELETE FROM tweet WHERE id_tweet= '$_GET[idtweet]'");
 }
 
+
       if (isset($_POST['envoyer'])){
  $r = $pdo->query("SELECT * FROM tweet WHERE message LIKE '%$_POST[recherche]%' ORDER BY date_heure_message DESC");
  while($message = $r->fetch(PDO::FETCH_ASSOC)){
 
+ 
+
   echo "<div class='card_container card_avatar'>";
-  echo $_SESSION['pseudo'] . ' :<br>' . $message['message'] . '<br> <br>';
+  echo  "<a href='profil.php?pseudo= ". $_SESSION['pseudo'] ."' </a>";
+  echo "<br>";
+  echo $message['message'] . '<br>';
   echo $message['date_heure_message'] . '<br>';
   echo "<a href='index.php?idtweet= ". $message['id_tweet'] ."'<i class='fa-solid fa-trash'></i> </a>";
-
   echo "</div>";
 }
 
 }  
 else {
-$r = $pdo->query('SELECT * FROM tweet ORDER BY date_heure_message DESC');
+  
+$r = $pdo->query('SELECT id_tweet, message, date_heure_message, tag, image, pseudo FROM tweet t, utilisateur u 
+WHERE t.id_utilisateur = u.id_utilisateur
+ORDER BY t.date_heure_message DESC');
 while($message = $r->fetch(PDO::FETCH_ASSOC)){
+
+   
+ 
 
     echo "<div class='card_container ".$message['tag'] . "'>";
     echo "<div class='card_text'>";
-    echo $_SESSION['pseudo'] . ' :<br>' . $message['message'] . '<br>';
+   /*  $t = $pdo->query("SELECT pseudo FROM utilisateur INNER JOIN tweet ON tweet.id_utilisateur = utilisateur.id_utilisateur  LIMIT 1"); */
+  /*  $t = $pdo->query("SELECT pseudo FROM utilisateur, tweet WHERE tweet.id_utilisateur = utilisateur.id_utilisateur  LIMIT 1");
+  while($tweet = $t->fetch(PDO::FETCH_ASSOC)){ */
+   echo  "<a href='profil.php?pseudo=". $message['pseudo'] ."' >" . $message['pseudo'] . "</a>";
+    echo $message['message'] . '<br>';
     echo "<div class='card_logo'>";
     echo "<i class='fa-regular fa-heart heart'></i>";
     echo "<i class='fa-regular fa-comment comment'></i>";
     echo "<i class='fa-regular fa-share-from-square share'></i>";
-    echo "<a href='index.php?idtweet= ". $message['id_tweet'] ."'<i class='fa-solid fa-trash'></i> </a>" . "<br>";
+    echo "<a href='index.php?idtweet=". $message['id_tweet'] ."'<i class='fa-solid fa-trash'></i> </a>" . "<br>";
     echo "</div>";
     echo "</div>";
     echo "<div class='card_img'>";
-    if ($message['image'] != NULL){
-      echo '<img src="'.$message['image'].'">'; 
+    if ($message['image'] == "./images/"){ 
       }
+    else{
+      echo '<img src="'.$message['image'].'">';
+    }
     echo "</div>";
-    
     echo "<div class='light'>";
     echo $message['date_heure_message'] . '<br>';
-    
     echo "</div>";
     echo "<br>";
     echo $message['tag'];
     echo "</div>";
-
-    
 
  }
 }
@@ -282,8 +293,6 @@ while($message = $r->fetch(PDO::FETCH_ASSOC)){
 ?>
 
       </div>
-
-
       <div class="parti_droite">
         <ul class="nav flex-column nav_droite">
           <li class="nav-item">
@@ -365,13 +374,12 @@ while($message = $r->fetch(PDO::FETCH_ASSOC)){
 </body>
 
 
-
 </html>
 
 
  <?php
 
- $erreur = null;
+
 
  if (isset($_POST['inscription'])){ 
 
@@ -383,9 +391,8 @@ while($message = $r->fetch(PDO::FETCH_ASSOC)){
 } 
 
 
-
-
 ?> 
 
 
 
+<!-- (SELECT u.pseudo, COUNT(id_tweet) FROM tweet t, utilisateur u where t.id_utilisateur = u.id_utilisateur GROUP BY t.id_utilisateur ORDER BY COUNT(id_tweet) DESC); -->
