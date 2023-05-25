@@ -5,7 +5,8 @@ const nav2 = document.querySelector(".parti_droite ul");
 nav2.style.position = "fixed";
 
 
-const trash = document.getElementsByClassName("trash");
+const trash = document.querySelectorAll(".trash");
+console.log(trash);
 const card = document.getElementsByClassName("card_container")
 const supp = document.getElementById("Supp");
 
@@ -13,6 +14,20 @@ const Oui = document.getElementById("Btn_oui");
 const Non = document.getElementById("Btn_non");
 
 const croix = document.querySelector(".supp p");
+
+trash.forEach( Element => {
+    Element.addEventListener("click", () =>{
+        supp.style.display = "block";
+        Oui.onclick = function (){
+            supp.style.display = "none";
+        }
+        Non.onclick = function () {
+            supp.style.display = "none";
+        }
+    });
+});
+
+
 
 
 var svg = document.querySelector(".svg2");
@@ -64,32 +79,6 @@ var parti_droite = document.querySelector(".parti_droite ul");
 
 parti_droite.style.position = "fixed";
 parti_droite.style.top = 0;
-
-
-
-
-
-
-
-
-
-for (const i in trash) {
-    trash[i].addEventListener("click", () => {
-        supp.style.display = "block";
-        Oui.onclick = function () {
-            supp.style.display = "none";
-        }
-        Non.onclick = function () {
-            supp.style.display = "none"
-        }
-    });
-};
-
-
-
-
-
-
 
 
 

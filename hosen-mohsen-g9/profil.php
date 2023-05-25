@@ -194,7 +194,9 @@ if (isset($_GET['idtweet'])){
                 echo "<i class='fa-regular fa-heart heart'></i>";
                 echo "<i class='fa-regular fa-comment comment'></i>";
                 echo "<i class='fa-regular fa-share-from-square share'></i>";
-                echo "<a href='index.php?idtweet= ". $message['id_tweet'] ."'<i class='fa-solid fa-trash'></i> </a>" . "<br>";
+                if( $_SESSION['pseudo'] == $message['pseudo']){
+                echo "<i class='fa-solid fa-trash trash'></i>" . "<br>";
+                }
                 echo "</div>";
                 echo "</div>";
                 echo "<div class='card_img'>";
@@ -212,6 +214,21 @@ if (isset($_GET['idtweet'])){
                 echo "<br>";
                 echo $message['tag'];
                 echo "</div>";
+
+
+
+
+                
+               echo "<div id='Supp' class='supp'>";
+               echo "<div class='contenu_supp'>";
+              echo "<div>";
+              echo "<p class='croix'>&times;</p>";
+              echo "</div>";
+              echo "<p> Voulez-vous supprimez ce post ? </p>";
+              echo "<a id='Btn_oui' href='index.php?idtweet=". $message['id_tweet'] ."'>"."  OUI" .  " </a>" . "<br>";
+            echo "<button id='Btn_non' class='btn btn-secondary  m-4'> Non </button>";
+            echo "</div>";
+            echo "</div>";
               }
             }
 
@@ -243,16 +260,7 @@ if (isset($_GET['idtweet'])){
       </ul>
     </div>
 
-  <div id="Supp" class="supp">
-    <div class="contenu_supp">
-      <div>
-        <p class="croix">&times;</p>
-      </div>
-      <p> Voulez-vous supprimez ce post ?</p>
-      <button id="Btn_oui" class="btn  btn-secondary m-4"> Oui </button>
-      <button id="Btn_non" class="btn btn-secondary  m-4"> Non </button>
-    </div>
-  </div>
+  
 
 
  

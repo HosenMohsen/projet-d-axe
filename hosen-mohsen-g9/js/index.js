@@ -12,6 +12,27 @@ window.addEventListener("scroll", () => {
 });
 
 
+const trash = document.querySelectorAll(".trash");
+const supp = document.getElementById("Supp");
+
+const Oui = document.getElementById("Btn_oui");
+const Non = document.getElementById("Btn_non");
+
+const croix = document.querySelector(".supp p");
+
+trash.forEach( Element => {
+    Element.addEventListener("click", () =>{
+        supp.style.display = "block";
+        Oui.onclick = function (){
+            supp.style.display = "none";
+        }
+        Non.onclick = function () {
+            supp.style.display = "none";
+        }
+    });
+});
+
+
 var parti_droite = document.querySelector(".parti_droite ul");
 
 parti_droite.style.position = "fixed";
