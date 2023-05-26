@@ -1,0 +1,175 @@
+@import url(./container.css);
+@import url(./logo.css);
+@import url(./index.css);
+@import url(./avatar.css);
+@import url(./card.css);
+@import url(./connexion.css);
+@import url(./form.css);
+@import url(./profil.css);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap'); 
+
+
+:root {
+    --main-color : rgb(49,49,49);
+    --main-bg-color : #f9f9f9;
+    --white : white;
+    --sidenav-bg-color : #111;
+    --sidenav-a-color : #818181;
+    --sidenav-a-hover : #f1f1f1;
+
+}
+
+
+.main_color {
+    background-color: var(--main-color);
+}
+
+
+
+body{
+    background-color: var(--main-bg-color);
+    
+}
+
+#Body {
+    margin: 1%;
+}
+
+.ul_pseudo{
+    text-decoration: none;
+    position: relative;
+    left: 20px;
+}
+
+form {
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.blanc{
+    color: var(--white)
+}
+
+
+h2 {
+    font-family: poppins;
+}
+
+.topnav {
+    overflow: hidden;
+    display: none;
+}
+
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--sidenav-bg-color);
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: var(--sidenav-a-color);
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover {
+    color: var(--sidenav-a-hover);
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+svg {
+    z-index: 10;
+}
+
+a svg {
+    transition: all .5s ease;
+}
+
+
+.a_pseudo{
+    text-decoration: none;
+    color: black;
+}
+
+.a_pseudo:hover{
+    font-weight: bold;
+}
+
+textarea{
+    max-width: 400px;
+    max-height: 200px;
+    resize: none;
+}
+
+#Btn_oui{
+    margin-top: 15%;
+    margin-left: 50%;
+    margin-bottom: 1%;
+}
+
+#Btn_non{
+    margin-left: 50%;
+}
+
+
+@media screen and (min-width:320px) and (max-width:1000px) {
+
+    .parti_gauche {
+
+        display: none;
+        margin-left: 5px;
+        min-width: 50px;
+
+    }
+
+    .parti_droite {
+        display: none;
+
+
+    }
+
+    .logo_form {
+        left: 50px;
+    }
+
+
+    .topnav {
+        display: block;
+        min-width: 50px;
+    }
+
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+
+
+
+}
+

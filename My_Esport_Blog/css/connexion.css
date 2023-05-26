@@ -1,0 +1,58 @@
+ :root{
+    --body-bg-color:#ecf0f3
+ }
+
+#Body1 {
+    margin-left: 400px;
+    width: 50vw;
+    background: var(--body-bg-color);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    place-items: center;
+    overflow: hidden;
+    font-family: poppins;
+}
+
+
+.center p {
+    margin-left: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.alert{
+    margin-left: 20px;
+}
+
+
+@media screen and (min-width:320px) and (max-width:750px) {
+    #Body1{
+       width: 100vw;
+       height: 100vh;
+       margin-top: 0px;
+       margin-left: 0px;
+    }
+
+}
+
+
+@media screen and (min-width:750px) and (max-width:1050px) {
+    #Body1{
+       width: 100vw;
+       height: 100vh;
+       margin-top: 0px;
+       margin-left: 125px;
+    }
+
+}
+
+
+
+
+
+
+
