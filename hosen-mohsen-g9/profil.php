@@ -71,7 +71,11 @@ if (isset($_GET['idtweet'])){
           <li class="nav-item">
             <div class="nav_slide">
               <i class="fa-solid fa-user"></i>
-              <a class="nav-link" href="./profil.php"> Profil</a>
+              <?php
+                if (isset($_SESSION['pseudo'])){
+                echo  "<a class='ul_pseudo' href='profil.php?pseudo=". $_SESSION['pseudo'] ."' >" . "Profil" . "</a>";  
+                }
+                ?>
             </div>
         </ul>
       </div>
@@ -93,7 +97,7 @@ if (isset($_GET['idtweet'])){
       </div>
         <?php
           if(isset($_SESSION['id_utilisateur'])){
-            echo "Bienvenue " .$_SESSION['pseudo'] . " sur MyEsportBlog" ;
+            echo "Vous êtes sur la page de : " .$_GET['pseudo'] . " sur MyEsportBlog" ;
             echo "<a href='deconnexion.php' class='btn btn-primary'> Déconnexion  </a>";
           };
 
@@ -143,42 +147,6 @@ if (isset($_GET['idtweet'])){
             }
             
             }  
-          /*   else {
-            $r = $pdo->query("SELECT id_tweet, message, date_heure_message, tag, image, pseudo FROM tweet t, utilisateur u 
-            WHERE t.id_utilisateur = u.id_utilisateur
-            AND t.id_utilisateur = '$_SESSION[id_utilisateur]'  ORDER BY date_heure_message DESC");
-            while($message = $r->fetch(PDO::FETCH_ASSOC)){
-            
-                echo "<div class='card_container ".$message['tag'] . "'>";
-                echo "<div class='card_text'>";
-                echo $message['pseudo'] . ' :<br>' . $message['message'] . '<br>';
-                echo "<div class='card_logo'>";
-                echo "<i class='fa-regular fa-heart heart'></i>";
-                echo "<i class='fa-regular fa-comment comment'></i>";
-                echo "<i class='fa-regular fa-share-from-square share'></i>";
-                echo "<a href='index.php?idtweet= ". $message['id_tweet'] ."'<i class='fa-solid fa-trash'></i> </a>" . "<br>";
-                echo "</div>";
-                echo "</div>";
-                echo "<div class='card_img'>";
-                if ($message['image'] == "./images/" ){
-                  }
-                else{
-                  echo '<img src="'.$message['image'].'">'; 
-                }
-                echo "</div>";
-                
-                echo "<div class='light'>";
-                echo $message['date_heure_message'] . '<br>';
-                
-                echo "</div>";
-                echo "<br>";
-                echo $message['tag'];
-                echo "</div>";
-            
-                
-            
-             }
-            } */
           
 
             if (isset($_GET['pseudo'])){

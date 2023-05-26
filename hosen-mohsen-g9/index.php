@@ -50,7 +50,7 @@ if (session_status() === PHP_SESSION_NONE){
       </a>
     </nav>
 
-    <div>
+    <div class ="MEB">
       <img class="logo_MEB" src="./images/MyEsportBlog.png" alt="logo MyEsportBlog">
     </div>
 
@@ -80,7 +80,11 @@ if (session_status() === PHP_SESSION_NONE){
             <li class="nav-item">
               <div class="nav_slide">
                 <i class="fa-solid fa-user"></i>
-                <a class="nav-link" href="profil.php"> Profil</a>
+                <?php
+                if (isset($_SESSION['pseudo'])){
+                echo  "<a class='ul_pseudo' href='profil.php?pseudo=". $_SESSION['pseudo'] ."' >" . " Profil" . "</a>";  
+                }
+                ?>
               </div>
           </ul>
         </div>
@@ -90,11 +94,9 @@ if (session_status() === PHP_SESSION_NONE){
       <div class="parti_centrale">
 
 
-
-
         <form action="" method='POST'>
-        <input type="text" name="recherche" placeholder="Rechercher des tweets">
-        <button type="submit" name="envoyer"> rechercher</button>
+          <input type="text" name="recherche" placeholder="Rechercher des tweets">
+          <button type="submit" name="envoyer"> rechercher</button>
         </form>
 
         <div>
@@ -111,87 +113,18 @@ if (session_status() === PHP_SESSION_NONE){
         </div>
         <br> <br>
         <ul id="tag_list">
-        <li id="btn1" class="btn btn-secondary" data-tag="League_of_legends">  League of Legends </li>
-        <li id="btn2" class="btn btn-secondary" data-tag="LEC">   LEC </li>
-        <li id="btn3" class="btn btn-secondary" data-tag="Valorant">   Valorant </li>
-        <li id="btn4" class="btn btn-secondary" data-tag="Europe">   Europe  </li>
-        <li id="btn5" class="btn btn-secondary" data-tag="VCT">  VCT </li>
-        <li id="btn6" class="btn btn-secondary" data-tag="Karmine Corp">   Karmine Corp </li>
+          <li id="btn1" class="btn btn-secondary" data-tag="League_of_legends">  League of Legends </li>
+          <li id="btn2" class="btn btn-secondary" data-tag="LEC">   LEC </li>
+          <li id="btn3" class="btn btn-secondary" data-tag="Valorant">   Valorant </li>
+          <li id="btn4" class="btn btn-secondary" data-tag="Europe">   Europe  </li>
+          <li id="btn5" class="btn btn-secondary" data-tag="VCT">  VCT </li>
+          <li id="btn6" class="btn btn-secondary" data-tag="Karmine Corp">   Karmine Corp </li>
         </ul>
 
         <ul id="reset_list">
-        <li id="btn7" class="btn btn-secondary" data-tag="Reset">  Reset </li>
+          <li id="btn7" class="btn btn-secondary" data-tag="Reset">  Reset </li>
         </ul>
 
-        <div class="card_container">
-          <div class="card_avatar karmine_logo">
-            <img class="avatar_karmine" src="./images/Karmine.svg" alt="Logo Karmine Corp">
-          </div>
-          <div class="card_text">
-            <h2 id="H2" class="h2">
-              Karmine Kcorp
-            </h2>
-            <p>
-              Aujourd'hui match à 21h00 contre LDLC. Soutenez-nous avec #Kcorp
-            </p>
-
-
-            <div class="card_logo">
-              <i id="Heart" class="fa-regular fa-heart heart"></i>
-              <i class="fa-regular fa-comment comment"></i>
-              <i class="fa-regular fa-share-from-square share"></i>
-            </div>
-          </div>
-          <div class="card_img">
-            <img src="./images/KcMatch.jpeg" alt="Dessin de la Karmine Corp">
-          </div>
-        </div>
-
-
-        <div class="card_container">
-          <div class="card_avatar karmine_logo">
-            <img class="avatar_karmine" src="./images/Karmine.svg" alt="Logo Karmine Corp">
-          </div>
-          <div class="card_text">
-            <h2 class="h2">
-              La meilleure bot lane de la LEC ?
-            </h2>
-            <p>
-              Avec leurs performances sont-ils la meilleur botlane de la LEC ? En tout cas j'ai hâte de les voir jouer
-              ce week-end
-            </p>
-            <div class="card_logo">
-              <i id="Heart2" class="fa-regular fa-heart heart"></i>
-              <i class="fa-regular fa-comment comment"></i>
-              <i class="fa-regular fa-share-from-square share"></i>
-            </div>
-          </div>
-          <div class="card_img">
-            <img src="./images/Hans_Mikyx.jpg" alt="Photo de Hans Sama et Mikyx">
-          </div>
-        </div>
-
-        <div class="card_container">
-          <div class="card_avatar karmine_logo">
-            <img class="avatar_karmine" src="./images/Karmine.svg" alt="Logo Karmine Corp">
-          </div>
-          <div class="card_text">
-            <h2 class="h2">
-              New Zeri Skin - Zeri rose fanée
-            </h2>
-            <p>
-              Voici un tout nouveau skin sur le champion zeri. Il s'agit de zeri rose fanée.
-            </p>
-            <div class="card_logo">
-              <i id="Heart3" class="fa-regular fa-heart heart"></i>
-              <i class="fa-regular fa-comment comment"></i>
-              <i class="fa-regular fa-share-from-square share"></i>
-            </div>
-          </div>
-          <div class="card_img">
-            <img src="./images/zeri.jpg" alt="Skin league of legends de zeri">
-          </div>
-        </div>
 
 
 
@@ -203,7 +136,6 @@ if (isset($_POST['tweet'])){
   $maxsize = 2000000;
   if($_FILES['upload']['error'] > 0)
   {
-    echo "une erreur";
   }
  
   $filesize = $_FILES['upload']['size'];
@@ -228,9 +160,9 @@ if (isset($_POST['tweet'])){
 
 }
 
-if (isset($_GET['idtweet'])){
+/* if (isset($_GET['idtweet'])){
 $pdo->exec("DELETE FROM tweet WHERE id_tweet= '$_GET[idtweet]'");
-}
+} */
 
 
       if (isset($_POST['envoyer'])){
@@ -248,6 +180,9 @@ $pdo->exec("DELETE FROM tweet WHERE id_tweet= '$_GET[idtweet]'");
   echo "</div>";
 }
 
+
+
+
 }  
 else {
   
@@ -255,13 +190,13 @@ $r = $pdo->query('SELECT id_tweet, message, date_heure_message, tag, image, pseu
 WHERE t.id_utilisateur = u.id_utilisateur
 ORDER BY t.date_heure_message DESC');
 while($message = $r->fetch(PDO::FETCH_ASSOC)){
-
    
  
-
-    echo "<div class='card_container ".$message['tag'] . "'>";
+  if(isset($_SESSION['id_utilisateur'])){
+    /* echo "<div class='card_container ".$message['tag'] . "'>";
     echo $message['id_tweet'];
     echo "<div class='card_text'>";
+    
    echo  "<a href='profil.php?pseudo=". $message['pseudo'] ."' >" . $message['pseudo'] . "</a>";
     echo $message['message'] . '<br>';
     echo "<div class='card_logo'>";
@@ -285,22 +220,52 @@ while($message = $r->fetch(PDO::FETCH_ASSOC)){
     echo "</div>";
     echo "<br>";
     echo $message['tag'];
+    echo "</div>"; */
+
+
+
+    echo "<div class='card ".$message['tag'] ."'>";
+    echo "<div class='card-body'>";
+    echo "<h5 class='card-title'> "." <a class='a_pseudo' href='profil.php?pseudo=". $message['pseudo'] ."' >" . $message['pseudo'] . "</a> "." </h5>";
+    echo  "<p class='card-text'> ". $message['message'] ."  </p>";
+    echo  "<p class='card-text'><small class='text-body-secondary'> ".$message['date_heure_message'] .  " " .$message['tag'] . " </small></p>";
     echo "</div>";
+    echo "<div class='card_img'>";
+    if ($message['image'] == "./images/"){ 
+    }
+  else{
+    echo  '<img class="card-img-bottom" src="'.$message['image'].'">'; 
+  }
+  echo "</div>";
+    echo "<div class='card_logo'>";
+    echo "<i id='Heart3' class='fa-regular fa-heart heart'></i>";
+    echo "<i class='fa-regular fa-comment comment'></i>";
+    echo "<i class='fa-regular fa-share-from-square share'></i>";
+    if( $_SESSION['pseudo'] == $message['pseudo']){
+      echo " <i class='fa-solid fa-trash trash'></i>" . "<br>";
 
-
-
-    echo "<div id='Supp' class='supp'>";
-    echo "<div class='contenu_supp'>";
-   echo "<div>";
-   echo "<p class='croix'>&times;</p>";
+      echo "<div id='Supp' class='supp'>";
+      echo "<div class='contenu_supp'>";
+     echo "<div>";
+     echo "<p class='croix'>&times;</p>";
+     echo "</div>";
+     echo "<p> Voulez-vous supprimez ce post ? </p>";
+     echo "<a href='delete.php?delete=". $message['id_tweet'] ."'>"." <button id='Btn_oui' class='btn btn-secondary  m-4'> Oui </button>  </a>".  "<br>";
+   echo "<button  id='Btn_non' class='btn btn-secondary  m-4'> Non </button>";
    echo "</div>";
-   echo "<p> Voulez-vous supprimez ce post ? </p>";
-   echo "<a id='Btn_oui' href='index.php?idtweet=". $message['id_tweet'] ."'>"."  OUI" .  " </a>" . "<br>";
- echo "<button id='Btn_non' class='btn btn-secondary  m-4'> Non </button>";
- echo "</div>";
- echo "</div>";
+   echo "</div>";
+      }
 
- }
+    echo  "</div>";
+    echo  "</div>";
+   
+
+ }}
+}
+
+if (isset($_GET['idtweet'])){
+  $idtweet = $_GET['idtweet'];
+  var_dump($idtweet);
 }
 
 ?>
@@ -341,7 +306,7 @@ while($message = $r->fetch(PDO::FETCH_ASSOC)){
         <span class="close">&times;</span>
         <form method="post" enctype="multipart/form-data"> 
           <label for="text"> Une histoire à raconter en 300 caractères max ?</label>
-          <textarea name="message" id="Message" cols="30" rows="20" placeholder="Raconte ton histoire" minlength="1" required="required" ></textarea>
+          <textarea name="message" id="Message" cols="30" rows="20" placeholder="Raconte ton histoire" required="required" ></textarea>
           <label for=""> Choissez tag</label>
           <select name="tag" id="nav_tag">
           <option value="League_of_legends">League of Legends </option>
@@ -371,7 +336,24 @@ while($message = $r->fetch(PDO::FETCH_ASSOC)){
           <button class="form_button" type="submit"> Inscription</button>
         </form>
       </div>
-    </div> <?php } ?>
+    </div> 
+    <script> 
+    let Pop_up = document.getElementById("Pop_up");
+
+onscroll = (event) => {
+    Pop_up.style.display = "block";
+}
+
+window.onclick = function (event) {
+    if (event.target == Pop_up) {
+        Pop_up.style.display = "none";
+    }
+};
+
+
+</script>
+
+    <?php } ?>
      
 
   </main>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : jeu. 25 mai 2023 à 00:53
+-- Généré le : ven. 26 mai 2023 à 15:13
 -- Version du serveur : 8.0.30
 -- Version de PHP : 8.1.10
 
@@ -41,13 +41,11 @@ CREATE TABLE `tweet` (
 --
 
 INSERT INTO `tweet` (`id_tweet`, `message`, `date_heure_message`, `tag`, `image`, `id_utilisateur`) VALUES
-(30, 'today it\'s match day', '2023-04-02 18:55:41', '', NULL, 0),
-(32, 'la  solo q challenge à commencer\r\n', '2023-04-02 19:03:36', '', NULL, 0),
-(84, ' allah est grand', '2023-04-16 21:28:22', 'VCT', NULL, 0),
-(115, 'blabla', '2023-05-04 15:36:51', 'League_of_legends', './images/tv_vintage.jpg', 0),
-(133, 'voilaaaaaaaaààà', '2023-05-23 18:17:04', 'LEC', './images/', 15),
-(135, 'test', '2023-05-23 22:05:37', 'LEC', './images/twitch.png', 15),
-(141, 'test', '2023-05-25 02:29:38', 'League_of_legends', './images/', 11);
+(150, 'test', '2023-05-26 15:20:58', 'League_of_legends', './images/', 11),
+(157, 'KELAWIN', '2023-05-26 15:51:38', 'League_of_legends', './images/1014478.jpg', 11),
+(159, 'Alexis 2', '2023-05-26 16:08:57', 'League_of_legends', './images/', 11),
+(161, 'Vitality a gagné le major ', '2023-05-26 16:52:49', 'League_of_legends', './images/vita.jpg', 11),
+(164, 'Trop hâte de revoir la LFL reprendre', '2023-05-26 16:56:47', 'Karmine Corp', './images/', 15);
 
 -- --------------------------------------------------------
 
@@ -100,7 +98,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `tweet`
 --
 ALTER TABLE `tweet`
-  MODIFY `id_tweet` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+  MODIFY `id_tweet` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateur`

@@ -10,6 +10,7 @@
 .logo{
     border: 2px solid black;
     padding: 3px;
+    z-index: 15;
 }
 
 
@@ -19,6 +20,7 @@
 }
 
 .logo_pen{
+    z-index: 10;
     top: 500px;
     position: sticky;
     display: flex;

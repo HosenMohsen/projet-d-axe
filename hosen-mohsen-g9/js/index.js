@@ -12,26 +12,79 @@ window.addEventListener("scroll", () => {
 });
 
 
-const trash = document.querySelectorAll(".trash");
-const supp = document.getElementById("Supp");
 
-const Oui = document.getElementById("Btn_oui");
-const Non = document.getElementById("Btn_non");
 
-const croix = document.querySelector(".supp p");
+const buttons = document.querySelectorAll("#tag_list li");
+const card = document.querySelectorAll(".card");
 
-trash.forEach( Element => {
-    Element.addEventListener("click", () =>{
-        supp.style.display = "block";
-        Oui.onclick = function (){
-            supp.style.display = "none";
-        }
-        Non.onclick = function () {
-            supp.style.display = "none";
-        }
+
+
+buttons.forEach(button => {
+    button.addEventListener("click", () =>{
+    let tag = button.getAttribute('data-tag');
+    console.log(tag);
+        card.forEach(tweet =>{
+                if(tweet.classList.contains(tag)){
+                    tweet.style.display = "flex";
+                } else {
+                    tweet.style.display = "none";
+                }          
+        });
+    })
+       
+});
+
+const resets = document.querySelectorAll("#reset_list li");
+console.log(resets);
+
+resets.forEach(element =>{
+    element.addEventListener("click", ()=>{
+        card.forEach(tweet =>{
+            tweet.style.display = "flex";
+        })
     });
 });
 
+
+const trash = document.querySelectorAll(".trash");
+const supp = document.getElementById("Supp");
+
+const Oui = document.querySelectorAll("#Btn_oui");
+const Non = document.querySelectorAll("#Btn_non");
+
+
+const croix = document.querySelectorAll(".supp p");
+
+trash.forEach( Element => {
+   let supp = Element.nextElementSibling.nextElementSibling
+   let non = supp.querySelector('#Btn_non')
+   let Croix = supp.querySelector('.supp p')
+   console.log(non)
+    Element.addEventListener("click", () =>{
+        supp.style.display = "block";
+        non.addEventListener("click", () =>{
+            supp.style.display = "none";
+        });
+        Croix.addEventListener("click", () =>{
+            supp.style.display = "none";
+        });
+    });
+});
+
+Oui.forEach(yes =>{
+    yes.addEventListener("click", () =>{
+        supp.style.display = "none";
+    })
+})
+
+
+
+
+
+
+/* croix.addEventListener("click", () =>{
+    supp.style.display = "none";
+}); */
 
 var parti_droite = document.querySelector(".parti_droite ul");
 
@@ -57,7 +110,7 @@ var Svg = document.querySelector(".svg");
 Svg.style.position = "fixed";
 Svg.style.top = "0%";
 
-const card = document.querySelectorAll(".card_container");
+
 
 
 
@@ -85,35 +138,6 @@ message.addEventListener("input", function(){
 
 
 
-
-const buttons = document.querySelectorAll("#tag_list li")
-
-
-
-buttons.forEach(button => {
-    button.addEventListener("click", () =>{
-    let tag = button.getAttribute('data-tag');
-        card.forEach(tweet =>{
-                if(tweet.classList.contains(tag)){
-                    tweet.style.display = "flex";
-                } else {
-                    tweet.style.display = "none";
-                }          
-        });
-    })
-       
-});
-
-const resets = document.querySelectorAll("#reset_list li");
-console.log(resets);
-
-resets.forEach(element =>{
-    element.addEventListener("click", ()=>{
-        card.forEach(tweet =>{
-            tweet.style.display = "flex";
-        })
-    });
-});
 
 
 

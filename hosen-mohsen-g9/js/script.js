@@ -2,6 +2,7 @@
 
 let Pen = document.getElementById("Pen");
 
+
 let Modal = document.getElementById("Modal");
 
 let span = document.getElementsByClassName("close")[0];
@@ -23,21 +24,21 @@ window.onclick = function (event) {
 
 let Publication = document.getElementById("P");
 
-let Pop_up = document.getElementById("Pop_up");
+/* let Pop_up = document.getElementById("Pop_up");
+ */
 
-
-onscroll = (event) => {
+/* onscroll = (event) => {
     Pop_up.style.display = "block";
-}
+} */ 
 
 
-window.onclick = function (event) {
+/* window.onclick = function (event) {
     if (event.target == Pop_up) {
         Pop_up.style.display = "none";
     }
 };
 
-
+ */
 
 
 

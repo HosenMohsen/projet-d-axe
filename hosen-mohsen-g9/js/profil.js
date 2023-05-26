@@ -6,32 +6,50 @@ nav2.style.position = "fixed";
 
 
 const trash = document.querySelectorAll(".trash");
-console.log(trash);
+
 const card = document.getElementsByClassName("card_container")
-const supp = document.getElementById("Supp");
+const supp = document.querySelectorAll(".supp");
 
-const Oui = document.getElementById("Btn_oui");
-const Non = document.getElementById("Btn_non");
 
-const croix = document.querySelector(".supp p");
+const Oui = document.querySelectorAll(".btnOui");
+const Non = document.querySelectorAll("#Btn_non");
+
+
+const croix = document.querySelectorAll(".supp p");
+
+
+
+window.onclick = function (event) {
+    console.log("yoooozeozkzekz");
+    if (event.target == supp) {
+        supp.style.display = "none";
+    }
+};
 
 trash.forEach( Element => {
     Element.addEventListener("click", () =>{
-        supp.style.display = "block";
+        supp.forEach(block =>{
+            block.style.display = "block";
+        })
         Oui.onclick = function (){
             supp.style.display = "none";
         }
-        Non.onclick = function () {
+        Non.onclick(non =>{
             supp.style.display = "none";
-        }
+        })
     });
 });
 
 
 
+/* croix.addEventListener("click", ()=>{
+    supp.style.block ="none";
+})
+ */
+
+
 
 var svg = document.querySelector(".svg2");
-console.log(svg)
 svg.style.position = "fixed";
 svg.style.top = 0;
 
